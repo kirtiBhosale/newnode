@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
+require('dotenv').config();
 
 express.static('public')
 
@@ -12,6 +13,6 @@ app.post('/', function(req, res) {
     console.log(item);
 });
 
-http.listen(3000, function(){
+http.listen(process.env.port, function(){
   console.log('listening on *:3000');
 });
